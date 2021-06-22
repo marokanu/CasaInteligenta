@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swagpoints="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ControlLed">
+
+
+    <com.example.firstproject.SwagPoints
+        android:id="@+id/seekbar_point"
+        android:layout_width="match_parent"
+        android:layout_height="474dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:padding="64dp"
+        swagpoints:arcColor="@color/color_arc"
+        swagpoints:arcWidth="8dp"
+        swagpoints:indicatorIcon="@drawable/indicator"
+        swagpoints:max="255"
+        swagpoints:min="0"
+        swagpoints:progressColor="@color/color_progress"
+        swagpoints:progressWidth="12dp"
+        swagpoints:step="1"
+        swagpoints:textColor="#CC11EE"
+        swagpoints:textSize="36sp" />
+    
+    
+    
+    
+    
+
+</RelativeLayout>

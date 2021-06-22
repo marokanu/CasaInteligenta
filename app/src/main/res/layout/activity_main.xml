@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Temperatura : "
+        android:textSize="30dp"
+        android:background="#FFFF00"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="0"
+        android:textSize="40dp"
+        android:progressDrawable="@drawable/custom_progress"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/temp"
+        android:text="°C"
+        android:textSize="40dp"
+        android:layout_marginLeft="100dp" />
+
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Umiditate : "
+        android:textSize="30dp"
+        android:background="#FFFF00"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/hum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="0"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/hum"
+        android:text="%"
+        android:textSize="40dp"
+        android:layout_marginLeft="100dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Senzor miscare:"
+        android:textSize="30dp"
+        android:background="#FFFF00"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/alert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="245dp"
+        android:text="0"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="285dp"
+        android:text="Nivelul apei :"
+        android:textSize="30dp"
+        android:background="#FFFF00"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/alerta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="325dp"
+        android:text="0"
+        android:textSize="25dp" />
+
+
+    <ProgressBar
+    android:id="@+id/progressWater"
+    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="355dp"
+    android:indeterminate="false"
+        android:layout_centerHorizontal="true"
+    android:max="100"
+    android:progress="0"
+        android:padding="15dp"
+        android:maxHeight="15dp"
+        android:minHeight="15dp"
+
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:text="Nivel gaze :"
+        android:textSize="30dp"
+        android:background="#FFFF00"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/alertaGaz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="440dp"
+        android:text="0"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/nivelGaz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="395dp"
+        android:layout_marginLeft="160dp"
+        android:text="0"
+        android:textSize="40dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nivelGaz"
+        android:text="%"
+        android:textSize="40dp"
+        android:layout_marginLeft="220dp"
+        android:textColor="@color/black"/>
+
+
+    <Button
+        android:id="@+id/nextID"
+        android:layout_width="190dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="218dp"
+        android:layout_marginLeft="218dp"
+        android:layout_marginTop="674dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="2dp"
+        android:onClick="nextActivity"
+        android:text="Lumina"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <Button
+        android:id="@+id/nextID2"
+        android:layout_width="155dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="139dp"
+        android:text="Fereastra" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/nextID1"
+            android:layout_width="150dp"
+            android:layout_height="98dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginEnd="125dp"
+            android:layout_marginRight="125dp"
+            android:layout_marginBottom="104dp"
+            android:onClick="nextActivity1"
+            android:text="Intensitate\n Led"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nextID4"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/nextID4"
+            android:layout_width="131dp"
+            android:layout_height="102dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:onClick="nextActivity4"
+            android:text="Alarmă"
+            app:layout_constraintBottom_toBottomOf="@+id/nextID1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nextID1"
+            app:layout_constraintTop_toTopOf="@+id/nextID1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>\
+<html>\
+<head>\
+    \t\n<title>Robojax 28BYJ-48 Motor Control</title>\
+    \t\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\
+    \n<style>\
+ \nhtml,body{\t\nwidth:100%\;\nheight:100%\;\nmargin:0}\n*{box-sizing:border-box}\n.colorAll{\n\tbackground-color:#90ee90}\n.colorBtn{\n\tbackground-color:#add8e6}\n.angleButtdon,a{\n\tfont-size:30px\;\nborder:1px solid #ccc\;\ndisplay:table-caption\;\npadding:7px 10px\;\ntext-decoration:none\;\ncursor:pointer\;\npadding:5px 6px 7px 10px}a{\n\tdisplay:block}\n.btn{\n\tmargin:5px\;\nborder:none\;\ndisplay:inline-block\;\nvertical-align:middle\;\ntext-align:center\;\nwhite-space:nowrap}\n";
+
+</style>\n\n</head>\n\n<body>\n<h1>Robojax 28BYJ-48 Stepper Motor Control </h1>\n;
+
+if(dirStatus ==2){
+\n\t<h2><span style=\"background-color: #FFFF00\">Motor Running in CW</span></h2>\n;
+}else if(dirStatus ==1){
+\n\t<h2><span style=\"background-color: #FFFF00\">Motor Running in CCW</span></h2>\n;
+}else{
+\n\t<h2><span style=\"background-color: #FFFF00\">Motor OFF</span></h2>\n";
+}
+if(dirStatus ==1){
+\t<div class=\"btn\">\n\t\t<a class=\"angleButton\" style=\"background-color:#f56464\"  href=\"/motor?";
+                                       argId[0];
+                                       "=off\">";
+    HTML +=buttonTitle1[0]; //motor ON title
+    }else{
+    HTML +="\t<div class=\"btn\">\n\t\t<a class=\"angleButton \" style=\"background-color:#90ee90\"  href=\"/motor?";
+        HTML += argId[0];
+        HTML += "=on\">";
+        HTML +=buttonTitle2[0];//motor OFF title
+        }
+        HTML +="</a>\t\n\t</div>\n\n";
+//Watch details at my Arduino Course at Udemy.com
+if(dirStatus ==2){
+HTML +="\t<div class=\"btn\">\n\t\t<a class=\"angleButton\" style=\"background-color:#f56464\"  href=\"/motor?";
+                                      HTML += argId[1];
+                                      HTML += "=off\">";
+    HTML +=buttonTitle1[1]; //motor ON title
+    }else{
+    HTML +="\t<div class=\"btn\">\n\t\t<a class=\"angleButton \" style=\"background-color:#90ee90\"  href=\"/motor?";
+        HTML += argId[1];
+        HTML += "=on\">";
+        HTML +=buttonTitle2[1];//motor OFF title
+        }
+        HTML +="</a>\t\n\t</div>\n\n";
+
+HTML +="\t\n</body>\n</html>\n";
+server.send(200, "text/html", HTML);

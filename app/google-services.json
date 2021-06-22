@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "921135079646",
+    "firebase_url": "https://espandarduino-default-rtdb.firebaseio.com",
+    "project_id": "espandarduino",
+    "storage_bucket": "espandarduino.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921135079646:android:0dddf4ce89529ddfb2e24f",
+        "android_client_info": {
+          "package_name": "com.example.firstproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921135079646-2f5264t1a8ebf475afo1pol3ee7ltugh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2BJRTJlSTgXMsdjXg-fDGhVmMPI7eRVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921135079646-2f5264t1a8ebf475afo1pol3ee7ltugh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
