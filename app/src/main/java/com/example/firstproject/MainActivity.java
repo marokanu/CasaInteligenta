@@ -27,8 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends Activity {
-    DatabaseReference mydb,mydb1,mydb2,mydb3;
-    TextView temp,hum, alert,alerta,gazalert,nivelgaz1;
+    DatabaseReference mydb,mydb1,mydb2,mydb3,mydb4;
+    TextView temp,hum, alert,alerta,gazalert,nivelgaz1,incendiu;
     Button button;
     int progress = 0;
     int nivel2gaz=0;
@@ -45,8 +45,32 @@ public class MainActivity extends Activity {
         gazalert=(TextView) findViewById(R.id.alertaGaz);
         progressBar = (ProgressBar) findViewById(R.id.progressWater);
         nivelgaz1=(TextView) findViewById(R.id.nivelGaz);
+        incendiu=(TextView) findViewById(R.id.nivelFoc);
         createNotificationChannel();
         createNotificationChannel1();
+
+        mydb4 = FirebaseDatabase.getInstance().getReference().child("Foc");
+        try {
+
+            mydb4.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Aceasta metoda este apelata cu valoarea initiala si dupa aceea mereu cand se schimba valoarea
+                    String incendiu1 = dataSnapshot.child("mesaj").getValue().toString();
+                    incendiu.setText(incendiu1);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Eroare la citire
+
+                }
+            });
+        } catch (Exception e) {
+
+
+        }
+
 
         // Create an Intent for the activity you want to start
         Intent notificationIntent = new Intent(this, MainActivity.class);

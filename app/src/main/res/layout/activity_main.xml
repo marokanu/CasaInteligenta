@@ -115,7 +115,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="390dp"
         android:text="Nivel gaze :"
         android:textSize="30dp"
         android:background="#FFFF00"
@@ -125,15 +125,32 @@
         android:id="@+id/alertaGaz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="430dp"
         android:text="0"
         android:textSize="25dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="465dp"
+        android:text="Incendiu :"
+        android:textSize="30dp"
+        android:background="#FFFF00"
+        android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/nivelFoc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="475dp"
+        android:layout_marginLeft="135dp"
+        android:text="0"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/nivelGaz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="395dp"
+        android:layout_marginTop="385dp"
         android:layout_marginLeft="160dp"
         android:text="0"
         android:textSize="40dp"
@@ -183,31 +200,30 @@
 
         <Button
             android:id="@+id/nextID1"
-            android:layout_width="150dp"
-            android:layout_height="98dp"
+            android:layout_width="0dp"
+            android:layout_height="87dp"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginEnd="125dp"
-            android:layout_marginRight="125dp"
-            android:layout_marginBottom="104dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:layout_marginBottom="108dp"
             android:onClick="nextActivity1"
             android:text="Intensitate\n Led"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/nextID4"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/nextID4"
-            android:layout_width="131dp"
-            android:layout_height="102dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_width="0dp"
+            android:layout_height="93dp"
+            android:layout_marginBottom="108dp"
             android:onClick="nextActivity4"
             android:text="Alarmă"
-            app:layout_constraintBottom_toBottomOf="@+id/nextID1"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/nextID1"
-            app:layout_constraintTop_toTopOf="@+id/nextID1" />
+            app:layout_constraintStart_toEndOf="@+id/nextID1" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
