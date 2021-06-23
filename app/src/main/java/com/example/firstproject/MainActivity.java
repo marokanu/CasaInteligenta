@@ -48,6 +48,27 @@ public class MainActivity extends Activity {
         incendiu=(TextView) findViewById(R.id.nivelFoc);
         createNotificationChannel();
         createNotificationChannel1();
+        createNotificationChannel2();
+
+        // Create an Intent for the activity you want to start
+        Intent notificationIntent2 = new Intent(this, MainActivity.class);
+        // Create the TaskStackBuilder and add the intent, which inflates the back stack
+        TaskStackBuilder stackBuilder2 = TaskStackBuilder.create(this);
+        stackBuilder2.addNextIntentWithParentStack(notificationIntent2);
+        // Get the PendingIntent containing the entire back stack
+        PendingIntent resultPendingIntent2 =
+                stackBuilder2.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+        NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this, "Foc")
+                .setSmallIcon(R.drawable.iconita)
+                .setContentTitle("Senzor flacara")
+                .setContentText("Pericol de incendiu !")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(resultPendingIntent2)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat notificationManager2 = NotificationManagerCompat.from(this);
 
         mydb4 = FirebaseDatabase.getInstance().getReference().child("Foc");
         try {
@@ -57,7 +78,12 @@ public class MainActivity extends Activity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Aceasta metoda este apelata cu valoarea initiala si dupa aceea mereu cand se schimba valoarea
                     String incendiu1 = dataSnapshot.child("mesaj").getValue().toString();
+                    String flacara = dataSnapshot.child("val").getValue().toString();
                     incendiu.setText(incendiu1);
+                    int flacara1 = Integer.parseInt(flacara);
+                    if(flacara1 == 0){
+                        notificationManager2.notify(96, builder2.build());
+                    }
                 }
 
                 @Override
@@ -70,7 +96,6 @@ public class MainActivity extends Activity {
 
 
         }
-
 
         // Create an Intent for the activity you want to start
         Intent notificationIntent = new Intent(this, MainActivity.class);
@@ -294,6 +319,22 @@ public class MainActivity extends Activity {
             // or other notification behaviors after this
             NotificationManager notificationManager1 = getSystemService(NotificationManager.class);
             notificationManager1.createNotificationChannel(channel);
+        }
+    }
+
+    private void createNotificationChannel2() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "flameChannel";
+            String description = "A channel for flame alert";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("Foc", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager2 = getSystemService(NotificationManager.class);
+            notificationManager2.createNotificationChannel(channel);
         }
     }
 
