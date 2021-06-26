@@ -13,7 +13,7 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
-public class SwagPoints extends View {
+public class CircularBar extends View {
 
     public static int INVALID_VALUE = -1;
     public static final int MAX = 100;
@@ -97,14 +97,14 @@ public class SwagPoints extends View {
      * Unghiul curent de cerc.
      */
     private double mTouchAngle;
-    private OnSwagPointsChangeListener mOnSwagPointsChangeListener;
+    private OnCircularBarChangeListener mOnCircularBarChangeListener;
 
-    public SwagPoints(Context context) {
+    public CircularBar(Context context) {
         super(context);
         init(context, null);
     }
 
-    public SwagPoints(Context context, AttributeSet attrs) {
+    public CircularBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
@@ -125,9 +125,9 @@ public class SwagPoints extends View {
         if (attrs != null) {
             // Initializam atributele
             final TypedArray a = context.obtainStyledAttributes(attrs,
-                    R.styleable.SwagPoints, 0, 0);
+                    R.styleable.CircularBar, 0, 0);
 
-            Drawable indicatorIcon = a.getDrawable(R.styleable.SwagPoints_indicatorIcon);
+            Drawable indicatorIcon = a.getDrawable(R.styleable.CircularBar_indicatorIcon);
             if (indicatorIcon != null)
                 mIndicatorIcon = indicatorIcon;
 
@@ -136,23 +136,23 @@ public class SwagPoints extends View {
             mIndicatorIcon.setBounds(-indicatorIconHalfWidth, -indicatorIconHalfHeight, indicatorIconHalfWidth,
                     indicatorIconHalfHeight);
 
-            mPoints = a.getInteger(R.styleable.SwagPoints_points, mPoints);
-            mMin = a.getInteger(R.styleable.SwagPoints_min, mMin);
-            mMax = a.getInteger(R.styleable.SwagPoints_max, mMax);
-            mStep = a.getInteger(R.styleable.SwagPoints_step, mStep);
+            mPoints = a.getInteger(R.styleable.CircularBar_points, mPoints);
+            mMin = a.getInteger(R.styleable.CircularBar_min, mMin);
+            mMax = a.getInteger(R.styleable.CircularBar_max, mMax);
+            mStep = a.getInteger(R.styleable.CircularBar_step, mStep);
 
-            mProgressWidth = (int) a.getDimension(R.styleable.SwagPoints_progressWidth, mProgressWidth);
-            progressColor = a.getColor(R.styleable.SwagPoints_progressColor, progressColor);
+            mProgressWidth = (int) a.getDimension(R.styleable.CircularBar_progressWidth, mProgressWidth);
+            progressColor = a.getColor(R.styleable.CircularBar_progressColor, progressColor);
 
-            mArcWidth = (int) a.getDimension(R.styleable.SwagPoints_arcWidth, mArcWidth);
-            arcColor = a.getColor(R.styleable.SwagPoints_arcColor, arcColor);
+            mArcWidth = (int) a.getDimension(R.styleable.CircularBar_arcWidth, mArcWidth);
+            arcColor = a.getColor(R.styleable.CircularBar_arcColor, arcColor);
 
-            mTextSize = (int) a.getDimension(R.styleable.SwagPoints_textSize, mTextSize);
-            textColor = a.getColor(R.styleable.SwagPoints_textColor, textColor);
+            mTextSize = (int) a.getDimension(R.styleable.CircularBar_textSize, mTextSize);
+            textColor = a.getColor(R.styleable.CircularBar_textColor, textColor);
 
-            mClockwise = a.getBoolean(R.styleable.SwagPoints_clockwise,
+            mClockwise = a.getBoolean(R.styleable.CircularBar_clockwise,
                     mClockwise);
-            mEnabled = a.getBoolean(R.styleable.SwagPoints_enabled, mEnabled);
+            mEnabled = a.getBoolean(R.styleable.CircularBar_enabled, mEnabled);
             a.recycle();
         }
 
@@ -233,22 +233,21 @@ public class SwagPoints extends View {
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    if (mOnSwagPointsChangeListener != null)
-                        mOnSwagPointsChangeListener.onStartTrackingTouch(this);
-//					updateOnTouch(event);
+                    if (mOnCircularBarChangeListener != null)
+                        mOnCircularBarChangeListener.onStartTrackingTouch(this);
                     break;
                 case MotionEvent.ACTION_MOVE:
                     updateOnTouch(event);
                     break;
                 case MotionEvent.ACTION_UP:
-                    if (mOnSwagPointsChangeListener != null)
-                        mOnSwagPointsChangeListener.onStopTrackingTouch(this);
+                    if (mOnCircularBarChangeListener != null)
+                        mOnCircularBarChangeListener.onStopTrackingTouch(this);
                     setPressed(false);
                     this.getParent().requestDisallowInterceptTouchEvent(false);
                     break;
                 case MotionEvent.ACTION_CANCEL:
-                    if (mOnSwagPointsChangeListener != null)
-                        mOnSwagPointsChangeListener.onStopTrackingTouch(this);
+                    if (mOnCircularBarChangeListener != null)
+                        mOnCircularBarChangeListener.onStopTrackingTouch(this);
                     setPressed(false);
                     this.getParent().requestDisallowInterceptTouchEvent(false);
                     break;
@@ -331,12 +330,6 @@ public class SwagPoints extends View {
             mCurrentProgress = progress;
         }
 
-//		if (mPreviousProgress != mCurrentProgress)
-//					progress, mTouchAngle,
-//					mPreviousProgress, mCurrentProgress,
-//					isMax ? "Max" : "",
-//					isMin ? "Min" : "");
-
         mPoints = progress - (progress % mStep);
 
         /**
@@ -353,8 +346,8 @@ public class SwagPoints extends View {
                 isMax = true;
                 progress = mMax;
                 mPoints = mMax;
-                if (mOnSwagPointsChangeListener != null) {
-                    mOnSwagPointsChangeListener
+                if (mOnCircularBarChangeListener != null) {
+                    mOnCircularBarChangeListener
                             .onPointsChanged(this, progress, fromUser);
                     return;
                 }
@@ -364,8 +357,8 @@ public class SwagPoints extends View {
                 isMin = true;
                 progress = mMin;
                 mPoints = mMin;
-                if (mOnSwagPointsChangeListener != null) {
-                    mOnSwagPointsChangeListener
+                if (mOnCircularBarChangeListener != null) {
+                    mOnCircularBarChangeListener
                             .onPointsChanged(this, progress, fromUser);
                     return;
                 }
@@ -389,10 +382,10 @@ public class SwagPoints extends View {
             progress = Math.min(progress, mMax);
             progress = Math.max(progress, mMin);
 
-            if (mOnSwagPointsChangeListener != null) {
+            if (mOnCircularBarChangeListener != null) {
                 progress = progress - (progress % mStep);
 
-                mOnSwagPointsChangeListener
+                mOnCircularBarChangeListener
                         .onPointsChanged(this, progress, fromUser);
             }
 
@@ -403,7 +396,7 @@ public class SwagPoints extends View {
         }
     }
 
-    public interface OnSwagPointsChangeListener {
+    public interface OnCircularBarChangeListener {
 
         /**
          * Notificare ca valoarea s-a schimbat.
@@ -412,13 +405,13 @@ public class SwagPoints extends View {
          * @param points     Valoarea curenta
          * @param fromUser   Adevarata daca valoarea a fost schimbata de catre utilizator.
          */
-        void onPointsChanged(SwagPoints swagPoints, int points, boolean fromUser);
+        void onPointsChanged(CircularBar swagPoints, int points, boolean fromUser);
 
-        void onStartTrackingTouch(SwagPoints swagPoints);
+        void onStartTrackingTouch(CircularBar swagPoints);
 
-        void onStopTrackingTouch(SwagPoints swagPoints);
+        void onStopTrackingTouch(CircularBar swagPoints);
 
-        void onProgressChanged(SwagPoints seekBar, int progress, boolean fromUser);
+        void onProgressChanged(CircularBar seekBar, int progress, boolean fromUser);
     }
 
     public void setPoints(int points) {
@@ -522,7 +515,7 @@ public class SwagPoints extends View {
         mStep = step;
     }
 
-    public void setOnSwagPointsChangeListener(OnSwagPointsChangeListener onSwagPointsChangeListener) {
-        mOnSwagPointsChangeListener = onSwagPointsChangeListener;
+    public void setOnCircularBarChangeListener(OnCircularBarChangeListener onCircularBarChangeListener) {
+        mOnCircularBarChangeListener = onCircularBarChangeListener;
     }
 }

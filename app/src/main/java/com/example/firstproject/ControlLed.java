@@ -10,18 +10,18 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ControlLed extends AppCompatActivity {
 
-    public SwagPoints seekBar;
+    public CircularBar seekBar;
     int progresie;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control_led);
-        seekBar = (SwagPoints) findViewById(R.id.seekbar_point);
+        seekBar = (CircularBar) findViewById(R.id.seekbar_point);
 
-        seekBar.setOnSwagPointsChangeListener(new SwagPoints.OnSwagPointsChangeListener() {
+        seekBar.setOnCircularBarChangeListener(new CircularBar.OnCircularBarChangeListener() {
             @Override
-            public void onPointsChanged(SwagPoints swagPoints, int points, boolean fromUser) {
+            public void onPointsChanged(CircularBar swagPoints, int points, boolean fromUser) {
                       progresie=seekBar.getPoints();
                       FirebaseDatabase database = FirebaseDatabase.getInstance();
                       DatabaseReference myRef = database.getReference("BEC");
@@ -29,17 +29,17 @@ public class ControlLed extends AppCompatActivity {
             }
 
             @Override
-            public void onStartTrackingTouch(SwagPoints seekBar) {
+            public void onStartTrackingTouch(CircularBar seekBar) {
                 // Nothing to do
             }
 
             @Override
-            public void onStopTrackingTouch(SwagPoints seekBar) {
+            public void onStopTrackingTouch(CircularBar seekBar) {
                 // Nothing to do
             }
 
             @Override
-            public void onProgressChanged(SwagPoints seekBar, int progress, boolean fromUser) {
+            public void onProgressChanged(CircularBar seekBar, int progress, boolean fromUser) {
 
             }
         });

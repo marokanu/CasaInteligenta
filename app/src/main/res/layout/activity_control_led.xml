@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:swagpoints="http://schemas.android.com/apk/res-auto"
+    xmlns:circularbar="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,23 +8,23 @@
     tools:context=".ControlLed">
 
 
-    <com.example.firstproject.SwagPoints
+    <com.example.firstproject.CircularBar
         android:id="@+id/seekbar_point"
         android:layout_width="match_parent"
         android:layout_height="474dp"
         android:layout_gravity="center"
         android:background="@color/black"
         android:padding="64dp"
-        swagpoints:arcColor="@color/color_arc"
-        swagpoints:arcWidth="8dp"
-        swagpoints:indicatorIcon="@drawable/indicator"
-        swagpoints:max="255"
-        swagpoints:min="0"
-        swagpoints:progressColor="@color/color_progress"
-        swagpoints:progressWidth="12dp"
-        swagpoints:step="1"
-        swagpoints:textColor="#CC11EE"
-        swagpoints:textSize="36sp" />
+        circularbar:arcColor="@color/color_arc"
+        circularbar:arcWidth="8dp"
+        circularbar:indicatorIcon="@drawable/indicator"
+        circularbar:max="255"
+        circularbar:min="0"
+        circularbar:progressColor="@color/color_progress"
+        circularbar:progressWidth="12dp"
+        circularbar:step="1"
+        circularbar:textColor="#CC11EE"
+        circularbar:textSize="36sp" />
     
     
     
