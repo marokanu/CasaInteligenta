@@ -99,11 +99,13 @@ public class CircularBar extends View {
     private double mTouchAngle;
     private OnCircularBarChangeListener mOnCircularBarChangeListener;
 
+    //Constructor folosit in aceasta clasa
     public CircularBar(Context context) {
         super(context);
         init(context, null);
     }
 
+    //Constructor folosit in fila XML
     public CircularBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -120,7 +122,7 @@ public class CircularBar extends View {
         mArcWidth = (int) (mArcWidth * density);
         mTextSize = (int) (mTextSize * density);
 
-        mIndicatorIcon = ContextCompat.getDrawable(context, R.drawable.indicator);
+        mIndicatorIcon = ContextCompat.getDrawable(context, R.drawable.led_round);
 
         if (attrs != null) {
             // Initializam atributele
@@ -162,18 +164,21 @@ public class CircularBar extends View {
 
         mProgressSweep = (float) mPoints / valuePerDegree();
 
+        //Obiect creat pentru desenarea cercului
         mArcPaint = new Paint();
         mArcPaint.setColor(arcColor);
         mArcPaint.setAntiAlias(true);
         mArcPaint.setStyle(Paint.Style.STROKE);
         mArcPaint.setStrokeWidth(mArcWidth);
 
+        //Obiect creat pentru desenarea progresului
         mProgressPaint = new Paint();
         mProgressPaint.setColor(progressColor);
         mProgressPaint.setAntiAlias(true);
         mProgressPaint.setStyle(Paint.Style.STROKE);
         mProgressPaint.setStrokeWidth(mProgressWidth);
 
+        //Obiect creat pentru desenarea textului
         mTextPaint = new Paint();
         mTextPaint.setColor(textColor);
         mTextPaint.setAntiAlias(true);

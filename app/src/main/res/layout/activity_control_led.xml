@@ -17,7 +17,7 @@
         android:padding="64dp"
         circularbar:arcColor="@color/color_arc"
         circularbar:arcWidth="8dp"
-        circularbar:indicatorIcon="@drawable/indicator"
+        circularbar:indicatorIcon="@drawable/led_round"
         circularbar:max="255"
         circularbar:min="0"
         circularbar:progressColor="@color/color_progress"
@@ -25,10 +25,7 @@
         circularbar:step="1"
         circularbar:textColor="#CC11EE"
         circularbar:textSize="36sp" />
-    
-    
-    
-    
+
     
 
 </RelativeLayout>
