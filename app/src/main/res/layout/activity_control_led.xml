@@ -17,7 +17,7 @@
         android:padding="64dp"
         circularbar:arcColor="@color/color_arc"
         circularbar:arcWidth="8dp"
-        circularbar:indicatorIcon="@drawable/led_round"
+        circularbar:indicatorIcon="@drawable/iconita2"
         circularbar:max="255"
         circularbar:min="0"
         circularbar:progressColor="@color/color_progress"

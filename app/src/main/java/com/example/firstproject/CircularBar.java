@@ -122,7 +122,7 @@ public class CircularBar extends View {
         mArcWidth = (int) (mArcWidth * density);
         mTextSize = (int) (mTextSize * density);
 
-        mIndicatorIcon = ContextCompat.getDrawable(context, R.drawable.led_round);
+        mIndicatorIcon = ContextCompat.getDrawable(context, R.drawable.iconita2);
 
         if (attrs != null) {
             // Initializam atributele
