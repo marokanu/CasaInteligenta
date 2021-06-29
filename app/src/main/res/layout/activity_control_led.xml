@@ -23,7 +23,7 @@
         circularbar:progressColor="@color/color_progress"
         circularbar:progressWidth="12dp"
         circularbar:step="1"
-        circularbar:textColor="#CC11EE"
+        circularbar:textColor="#FF0000"
         circularbar:textSize="36sp" />
 
     
